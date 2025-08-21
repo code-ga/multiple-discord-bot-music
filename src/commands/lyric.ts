@@ -3,7 +3,7 @@ import { Args, Awaitable, Command } from '@sapphire/framework';
 import { Context, InteractionContext, MessageContext } from '../structures/Context.js';
 import { Message, EmbedBuilder } from 'discord.js';
 import { getI8n } from '../i8n/index.js';
-import lyricsSearcher from "lyrics-searcher";
+import lyricsSearcher from "../lib/Lyric.js";
 
 
 /**
