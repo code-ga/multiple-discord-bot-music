@@ -25,8 +25,8 @@ process.on("SIGINT", () => {
 const serverPath = "http://localhost:3000"
 const app = express()
 const server = http.createServer(app)
-const wss = new WebSocketServer({ server })
-const clients = new Map<string, { userID: string,username:string, guildIDs: string[], ws: WebSocket, busyGuild: Set<string>, inviteLink: string, voiceChannelIDs: Map<string, string> }>()
+const wss = new WebSocketServer({ server, autoPong: true })
+const clients = new Map<string, { userID: string, username: string, guildIDs: string[], ws: WebSocket, busyGuild: Set<string>, inviteLink: string, voiceChannelIDs: Map<string, string> }>()
 const handledMessage = new Map<string, { offererID: string, voiceChannelId: string, textChannelId: string, guildId: string, messageId: string, breakUserIDs: Set<string> }>()
 app.get("/invites", (req, res) => {
 	res.json({

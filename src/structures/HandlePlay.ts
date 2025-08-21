@@ -135,6 +135,14 @@ export class HandlePlay {
       }
       return null
     })
+    this.websocket.on("close", () => {
+      this.websocket = new WebSocket(process.env.SERVER_PATH)
+      this.handleWebsocket()
+    })
+    this.websocket.on("error", () => {
+      this.websocket = new WebSocket(process.env.SERVER_PATH)
+      this.handleWebsocket()
+    })
   }
 
   sendPlayCommand(args: {
