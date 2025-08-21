@@ -1,0 +1,19 @@
+{
+	"extends": [
+		"@sapphire/ts-config",
+		"@sapphire/ts-config/extra-strict",
+		"@sapphire/ts-config/decorators",
+		"@sapphire/ts-config/verbatim"
+	],
+	"compilerOptions": {
+		"rootDir": "./src",
+		// "noEmit": true,
+		"verbatimModuleSyntax": false,
+		"target": "esnext",
+		"moduleResolution": "nodenext",
+		"module": "nodenext",
+		"importHelpers": true,
+		"outDir": "./dist"
+	},
+	"include": ["src"]
+}
