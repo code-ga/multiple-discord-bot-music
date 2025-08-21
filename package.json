@@ -27,6 +27,8 @@
 		"figlet": "^1.8.1",
 		"gradient-string": "^2.0.2",
 		"kazagumo": "^3.2.2",
+		"lyrics-finder": "^21.7.0",
+		"lyrics-searcher": "^1.0.58",
 		"moment": "^2.30.1",
 		"openai": "^4.103.0",
 		"openai-zod-functions": "^0.1.2",

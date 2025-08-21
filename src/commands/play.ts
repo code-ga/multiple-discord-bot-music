@@ -54,6 +54,7 @@ export class PlayCommand extends Command {
 		const query = message.isMessage() ? await message.args.rest('string').catch(() => null) : message.options.getString('query');
 		if (!query) return process.env.INDEX == "0" && await send(getI8n('missingQuery', { locale: message.guild.preferredLocale }));
 
+		if (process.env.INDEX != "0") return;
 		// --- search ---
 		const search = await message.client.kazagumo.search(query, { requester: message.author });
 		if (!search.tracks.length) return process.env.INDEX == "0" && await send(getI8n('noResults', { locale: message.guild.preferredLocale }));

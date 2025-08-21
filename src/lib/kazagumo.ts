@@ -67,11 +67,10 @@ export async function loadKazagumoEvents(client: Client) {
 		if (!channel || !channel.isSendable()) return;
 		const guild = await client.guilds.fetch(player.guildId);
 		if (player.data.get("message")) {
-			(player.data.get("message") as Message | undefined)?.edit({
+			(player.data.get("message") as Message | undefined)?.reply({
 				embeds: [createEmbed(getI8n("playingSongEmbed", { locale: guild?.preferredLocale, variables: { title: track.title, author: track.author || "Unknown" } }))],
 				content: getI8n("playingSong", { locale: guild?.preferredLocale, variables: { title: track.title, author: track.author || "Unknown" } }),
-				attachments: []
-			});
+			}).then((msg) => player.data.set('message', msg));
 		} else {
 			channel
 				?.send({

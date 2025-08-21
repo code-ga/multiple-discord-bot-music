@@ -13,7 +13,7 @@ function createEmbed(description: string) {
 }
 
 @ApplyOptions<Command.Options>({
-	description: 'Turn on/off auto play (Bật/tắt chế độ phát tự động)', // cSpell:ignore phát động,
+	description: 'Get the Lyric of the current song', // cSpell:ignore phát động,
 })
 export class AutoplayCommand extends Command {
 	// public override registerApplicationCommands(registry: Command.Registry) {
@@ -64,8 +64,6 @@ export class AutoplayCommand extends Command {
 		}
 
 
-
-		player.data.set('autoplay', !player.data.get('autoplay'));
 
 		// await send(`Tự động phát nhạc: ${player.data.get('autoplay') ? 'Bật' : 'Tắt'}.`);
 		await send(getI8n('autoPlayResponse', { locale: message.guild.preferredLocale, variables: { status: player.data.get('autoplay') ? 'On (Bật)' : 'Off (Tắt)' } },));

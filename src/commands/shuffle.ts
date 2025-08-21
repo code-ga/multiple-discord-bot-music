@@ -13,11 +13,11 @@ function createEmbed(description: string) {
 }
 
 @ApplyOptions<Command.Options>({
-  description: 'Tăng giảm volume'
+  description: 'Tạm dừng bài hát hiện tại'
 })
-export class VolumeCommand extends Command {
+export class PauseCommand extends Command {
   // public override registerApplicationCommands(registry: Command.Registry) {
-  // 	registry.registerChatInputCommand((command) => command.setName('autoplay').setDescription('Bật/tắt chế độ phát tự động'));
+  // 	registry.registerChatInputCommand((command) => command.setName('pause').setDescription('Tạm dừng bài hát hiện tại'));
   // }
 
   public override async messageRun(message: Message, args: Args) {
@@ -29,15 +29,16 @@ export class VolumeCommand extends Command {
   }
 
   private async execute(message: Context) {
-    // Helper gửi embed nhanh gọn
+    const voiceChannel = message.member?.voice.channel;
+
     const send = (content: string) => message.reply({ embeds: [createEmbed(content)] });
+
+    if (!message.client.user) return;
+
     if (!message.guild) {
       await send(getI8n('userNotInGuild'));
       return;
     }
-    
-    const voiceChannel = message.member?.voice.channel;
-    if (!message.client.user) return;
 
     if (!message.channel) {
       await send(getI8n('userNotInChanel', { locale: message.guild.preferredLocale }));
@@ -50,22 +51,15 @@ export class VolumeCommand extends Command {
     }
 
     const player = message.client.kazagumo.getPlayer(message.guild!.id);
-
     if (!player || !player.queue.current) {
-      // await send('Không có bài hát nào đang phát để dừng.');
-      // process.env.INDEX == "0" && await message.reply(getI8n('noSongPlaying', { locale: message.guild?.preferredLocale }));
+      // await send('Không có bài hát nào đang phát để tạm dừng.');
       return;
     }
-
     if (voiceChannel.id != player.voiceId) {
       return
     }
 
-
-    const volume = message.isMessage() ? await message.args.pick('string').catch(() => null) : message.options.getString('volume');
-    await player.setVolume(Math.max(0, Math.min(Number(volume) || 100, 100)));
-
-    // await send(`Tự động phát nhạc: ${player.data.get('autoplay') ? 'Bật' : 'Tắt'}.`);
-    await send(getI8n('settedVolume', { locale: message.guild.preferredLocale, variables: { volume: "" + player.volume } }));
+    player.queue.shuffle();
+    await send(getI8n('shuffledQueue', { locale: message.guild.preferredLocale }));
   }
 }

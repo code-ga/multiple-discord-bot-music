@@ -13,7 +13,9 @@ export class HelpCommand extends Command {
 
   public override async messageRun(message: Message, _args: Args) {
     const commands = [...this.container.client.stores.get("commands").values()];
-
+    if (process.env.INDEX != "0") {
+      return
+    }
     const embed = new EmbedBuilder()
       .setTitle('✨ Command List ✨')
       .setColor([248, 189, 208]) // Using RGB for a softer pink

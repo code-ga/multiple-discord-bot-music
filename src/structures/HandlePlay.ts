@@ -38,7 +38,7 @@ export class HandlePlay {
       const messageData = JSON.parse("" + new String(data))
       if (messageData.type == "PLAY") {
         const { userID, voiceChannelId, query, guildId, offererID, textChannelId } = messageData
-        console.log(messageData, offererID)
+        console.log(messageData)
         const author = await this.client.users.fetch(offererID);
         if (userID != this.client.user?.id) return
         const voiceChannel = await this.client.channels.fetch(voiceChannelId);

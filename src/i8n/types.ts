@@ -29,6 +29,10 @@ const baseI8n = {
   botMissingPermissions: `I am missing the following permissions to run this command: {permissions}`,
   commandNotAllowed: 'You are not allowed to use this command. Error code {code}',
   commandError: 'An error occurred while executing the command.\n\n-# Error code: {error}',
+  lyricNotFound: 'Lyric not found',
+  lyricEmbedTitle: 'Lyrics for {title} by {author}',
+  noSongPlaying: 'No songs are currently playing',
+  shuffledQueue: 'Shuffled queue',
 }
 
 export type I8n = typeof baseI8n

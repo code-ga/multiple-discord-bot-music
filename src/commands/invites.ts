@@ -11,6 +11,7 @@ export class InviteCommand extends Command {
   }
 
   public override async messageRun(message: Message, _args: Args) {
+    if (process.env.INDEX != "0") return
     const invites = await this.container.client.handlePlay.getInviteLink();
     const embed = new EmbedBuilder()
       .setTitle('Invite')

@@ -31,4 +31,8 @@ export default {
   botMissingPermissions: "Bot không có quyền để thực hiện lệnh này.\n\n-# Thiếu quyền: {permissions}",
   commandNotAllowed: 'Bạn không thể sử dụng lệnh ở nơi đây\n\n-# Mã lỗi: ${code}',
   commandError: 'Đã xảy ra lỗi khi thực hiện lệnh này.\n\n-# Mã lỗi: {error}',
+  lyricNotFound: 'Không tìm thấy lyric của bài hát hiện tại',
+  lyricEmbedTitle: 'Lyrics for {title} by {author}',
+  noSongPlaying: 'Không có bài hát đang phát',
+  shuffledQueue: 'Đã xáo trộn queue',
 } satisfies I8n
