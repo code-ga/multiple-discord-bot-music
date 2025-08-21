@@ -64,7 +64,7 @@ export class AutoplayCommand extends Command {
 		}
 
 
-
+		player.data.set('autoplay', !player.data.get('autoplay'));
 		// await send(`Tự động phát nhạc: ${player.data.get('autoplay') ? 'Bật' : 'Tắt'}.`);
 		await send(getI8n('autoPlayResponse', { locale: message.guild.preferredLocale, variables: { status: player.data.get('autoplay') ? 'On (Bật)' : 'Off (Tắt)' } },));
 	}
