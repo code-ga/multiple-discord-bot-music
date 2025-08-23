@@ -5,16 +5,16 @@ A powerful Discord music bot built with Discord.js v14, Sapphire Framework, and 
 ## ✨ Features
 
 ### 🎶 Music Commands
-- **Play** (`l!play`, `l!p`) - Play music from YouTube, SoundCloud, and other sources
-- **Pause** ( `l!pause`) - Pause the current track
-- **Resume** ( `l!resume`) - Resume playback
-- **Skip** ( `l!skip`) - Skip to the next track
-- **Stop** ( `l!stop`) - Stop playback and clear queue
-- **Queue** ( `l!queue`) - View the current queue
-- **Now Playing** ( `l!np`) - Show current track info
-- **Volume** ( `l!vol`) - Adjust playback volume (0-100)
-- **Loop** ( `l!loop`) - Set loop mode (off/single/all)
-- **Autoplay** ( `l!autoplay`) - Toggle autoplay mode
+- **Play** (`lplay`, `lp`) - Play music from YouTube, SoundCloud, and other sources
+- **Pause** ( `lpause`) - Pause the current track
+- **Resume** ( `lresume`) - Resume playback
+- **Skip** ( `lskip`) - Skip to the next track
+- **Stop** ( `lstop`) - Stop playback and clear queue
+- **Queue** ( `lqueue`) - View the current queue
+- **Now Playing** ( `lnp`) - Show current track info
+- **Volume** ( `lvol`) - Adjust playback volume (0-100)
+- **Loop** ( `lloop`) - Set loop mode (off/single/all)
+- **Autoplay** ( `lautoplay`) - Toggle autoplay mode
 
 ### 🌐 Multi-Language Support
 - **English** - Full support
@@ -159,7 +159,7 @@ src/
 ```typescript
 export const config = {
   developers: ['YOUR_USER_ID'], // Developer user IDs
-  prefix: 'l!'                   // Command prefix
+  prefix: 'l'                   // Command prefix
 };
 ```
 
@@ -198,21 +198,21 @@ This bot supports running multiple instances simultaneously for better scalabili
 ### Music Commands
 | Command | Aliases | Description |
 |---------|---------|-------------|
-| `l!play <query>` | `l!p` | Play a song or playlist |
-| `l!pause` | - | Pause current playback |
-| `l!resume` | - | Resume playback |
-| `l!skip` | - | Skip current song |
-| `l!stop` | - | Stop and clear queue |
-| `l!queue` | `l!q` | Show current queue |
-| `l!nowplaying` | `l!np` | Show current song |
-| `l!volume <0-100>` | `l!vol` | Set volume |
-| `l!loop <mode>` | - | Set loop mode (off/single/all) |
-| `l!autoplay` | - | Toggle autoplay |
+| `lplay <query>` | `lp` | Play a song or playlist |
+| `lpause` | - | Pause current playback |
+| `lresume` | - | Resume playback |
+| `lskip` | - | Skip current song |
+| `lstop` | - | Stop and clear queue |
+| `lqueue` | `lq` | Show current queue |
+| `lnowplaying` | `lnp` | Show current song |
+| `lvolume <0-100>` | `lvol` | Set volume |
+| `lloop <mode>` | - | Set loop mode (off/single/all) |
+| `lautoplay` | - | Toggle autoplay |
 
 ### Utility Commands
 | Command | Description |
 |---------|-------------|
-| `l!ping` | Check bot latency |
+| `lping` | Check bot latency |
 
 ## 🚀 Deployment
 
